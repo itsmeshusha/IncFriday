@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/IncFriday/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/IncFriday/static/js/main.c78c9805.chunk.js",
+    "main.js.map": "/IncFriday/static/js/main.c78c9805.chunk.js.map",
+    "runtime-main.js": "/IncFriday/static/js/runtime-main.625b2139.js",
+    "runtime-main.js.map": "/IncFriday/static/js/runtime-main.625b2139.js.map",
+    "static/js/2.fc25c990.chunk.js": "/IncFriday/static/js/2.fc25c990.chunk.js",
+    "static/js/2.fc25c990.chunk.js.map": "/IncFriday/static/js/2.fc25c990.chunk.js.map",
+    "static/js/3.6bc1b7c5.chunk.js": "/IncFriday/static/js/3.6bc1b7c5.chunk.js",
+    "static/js/3.6bc1b7c5.chunk.js.map": "/IncFriday/static/js/3.6bc1b7c5.chunk.js.map",
+    "index.html": "/IncFriday/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/IncFriday/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.fc25c990.chunk.js.LICENSE.txt": "/IncFriday/static/js/2.fc25c990.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/IncFriday/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.625b2139.js",
+    "static/js/2.fc25c990.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.c78c9805.chunk.js"
+  ]
+}
