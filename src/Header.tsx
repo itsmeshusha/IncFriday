@@ -1,25 +1,27 @@
 import React from 'react'
 import {NavLink} from "react-router-dom";
+import {PATH} from "./Routes";
+
 
 export const Header = () => {
-    return <div>
-        <div>
-            <NavLink to={"/login"}>Log In</NavLink>
-        </div>
-        <div>
-            <NavLink to={"/registration"}>Registration</NavLink>
-        </div>
-        <div>
-            <NavLink to={"/recover-password"}>Recover Password</NavLink>
-        </div>
-        <div>
-            <NavLink to={"/new-password"}>New Password</NavLink>
-        </div>
-        <div>
-            <NavLink to={"/profile"}>Profile</NavLink>
-        </div>
-        <div>
-            <NavLink to={"/test"}>Test</NavLink>
-        </div>
+    return <div className={"header"}>
+        <span className={"item"}>
+            <NavLink to={PATH.LOGIN}>Log In</NavLink>
+        </span>
+        <span className={"item"}>
+            <NavLink to={PATH.REGISTRATION}>Registration</NavLink>
+        </span>
+        <span className={"item"}>
+            <NavLink to={PATH.RECOVER_PASSWORD}>Recover Password</NavLink>
+        </span>
+        <span className={"item"}>
+            <NavLink to={PATH.NEW_PASSWORD}>New Password</NavLink>
+        </span>
+        <span className={"item"}>
+            <NavLink to={PATH.PROFILE}>Profile</NavLink>
+        </span>
+        <span className={"item"}>
+            <NavLink to={PATH.TEST}>Test</NavLink>
+        </span>
     </div>
 }
