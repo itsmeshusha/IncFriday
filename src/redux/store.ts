@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 import {combineReducers} from "redux";
 import {profileReducer} from "./profile-reducer";
-
+//hello reducer
 const reducers = combineReducers({
     profile: profileReducer
 })
