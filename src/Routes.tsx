@@ -17,6 +17,9 @@ export const PATH = {
     REGISTRATION: "/registration",
     TEST: "/test"
 }
+
+//Routes
+
 export const Routes = () => {
     return <div>
         <Switch>

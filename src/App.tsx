@@ -14,9 +14,7 @@ function App() {
         <HashRouter>
         <Header />
         <Routes />
-      <SuperCheckbox />
-      <SuperInputText  />
-      <SuperButton>Button</SuperButton>
+
         </HashRouter>
     </div>
   );
