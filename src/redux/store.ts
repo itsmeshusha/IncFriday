@@ -5,6 +5,7 @@ import {profileReducer} from "./profile-reducer";
 const reducers = combineReducers({
     profile: profileReducer
 })
+//commit
 
 const store = createStore(reducers)
 
