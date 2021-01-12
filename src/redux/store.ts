@@ -8,6 +8,7 @@ const reducers = combineReducers({
     profile: profileReducer,
     register: registerReducer
 })
+//commit
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
