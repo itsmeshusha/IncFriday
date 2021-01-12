@@ -15,6 +15,7 @@ export const profileReducer = (state = initState, action: ActionType) => {
             return state
         }
         default:
+
             return state
     }
 }
