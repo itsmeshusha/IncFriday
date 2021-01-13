@@ -32,17 +32,28 @@ export const Registration = () => {
     }
 
     return <div>
+        <SuperInputText
+            type={"text"}
+            placeholder={"email"}
+            value={email}
+            onChangeText={setEmail}/>
 
-        <SuperInputText type={"text"} placeholder={"email"} value={email} onChangeText={setEmail}/>
-        <div>Enter email</div>
+            <div>Enter email</div>
 
-        <SuperInputText type={"password"} placeholder={"password"} value={password} onChangeText={setPassword}/>
-        <div>Enter password</div>
+        <SuperInputText type={"password"}
+                        placeholder={"password"}
+                        value={password}
+                        onChangeText={setPassword}/>
 
-        <SuperInputText type={"password"} placeholder={"confirm password"} value={confirmPassword}
+                        <div>Enter password</div>
+
+        <SuperInputText type={"password"}
+                        placeholder={"confirm password"} value={confirmPassword}
                         onChangeText={setConfirmPassword}/>
-        <div>Confirm password</div>
 
-        <SuperButton onClick={addNewUser}>Register</SuperButton>
+                        <div>Confirm password</div>
+
+        <SuperButton
+            onClick={addNewUser}>Register</SuperButton>
     </div>
 }
