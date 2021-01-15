@@ -4,7 +4,7 @@ import SuperButton from "../../common/c2-SuperButton/SuperButton";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../redux/store";
 import {registerNewUserTC} from "../../redux/register-reducer";
-import { Redirect } from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import {PATH} from "../../Routes";
 
 export const Registration = () => {
@@ -14,7 +14,8 @@ export const Registration = () => {
     const [confirmPassword, setConfirmPassword] = useState("")
 
     const dispatch = useDispatch()
-    const isRegistered = useSelector<AppStoreType, boolean>(state => state.register.isRegistered)
+    const isRegistered = useSelector<AppStoreType, boolean>
+    (state => state.register.isRegistered)
 
     const addNewUser = () => {
         if (password === confirmPassword) {
@@ -38,20 +39,21 @@ export const Registration = () => {
             value={email}
             onChangeText={setEmail}/>
 
-            <div>Enter email</div>
+        <div>Enter email</div>
 
         <SuperInputText type={"password"}
                         placeholder={"password"}
                         value={password}
                         onChangeText={setPassword}/>
 
-                        <div>Enter password</div>
+        <div>Enter password</div>
 
         <SuperInputText type={"password"}
-                        placeholder={"confirm password"} value={confirmPassword}
+                        placeholder={"confirm password"}
+                        value={confirmPassword}
                         onChangeText={setConfirmPassword}/>
 
-                        <div>Confirm password</div>
+        <div>Confirm password</div>
 
         <SuperButton
             onClick={addNewUser}>Register</SuperButton>

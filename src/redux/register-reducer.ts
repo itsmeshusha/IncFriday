@@ -16,7 +16,8 @@ export const registerReducer = (state: InitStateType = initState, action: Action
 }
 
 //AC
-export const registerNewUserAC = (isRegistered: boolean) => ({type: "REGISTER-REDUCER/REGISTER-NEW-USER", isRegistered} as const)
+export const registerNewUserAC = (isRegistered: boolean) =>
+    ({type: "REGISTER-REDUCER/REGISTER-NEW-USER", isRegistered} as const)
 
 //thunks
 export const registerNewUserTC = (newUserData: RegisterNewUserDataType) => (dispatch: Dispatch) => {

@@ -14,3 +14,9 @@ export const registerAPI = {
         return instance.post("/auth/register", data)
     }
 }
+
+export const authAPI = {
+    loginUser(data: RegisterNewUserDataType) {
+        return instance.post(`/auth/me`, data)
+    }
+} 
