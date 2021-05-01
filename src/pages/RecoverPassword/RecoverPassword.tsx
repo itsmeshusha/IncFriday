@@ -1,20 +1,26 @@
-import React, {useState} from 'react'
+import React, {ChangeEvent, useState} from 'react'
 import SuperInputText from "../../common/SuperInputText/SuperInputText";
 import SuperButton from "../../common/SuperButton/SuperButton";
+import {useDispatch} from "react-redux";
+import {sendEmailTC} from "../../redux/recover-password-reducer";
 
 export const RecoverPassword = () => {
 
     const [email, setEmail] = useState("")
+    const dispatch = useDispatch()
 
+    const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value)
+    }
 
     const sendEmail = () => {
-        alert(email)
+        dispatch(sendEmailTC(email))
     }
 
     return <div>
-        <h3>Recover Password</h3>
+        <h3>Forgot Password?</h3>
         <div>
-            <SuperInputText type={"text"} placeholder={"email"} value={email} onChangeText={setEmail} />
+            <SuperInputText type={"text"} placeholder={"email"} value={email} onChange={onChangeEmail} />
             <SuperButton onClick={sendEmail}>Send email</SuperButton>
         </div>
         <p>On your email we'll send a link. Please click it.</p>

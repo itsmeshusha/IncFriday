@@ -2,22 +2,28 @@ import axios from 'axios';
 
 
 const instance = axios.create({
-    baseURL: "https://neko-back.herokuapp.com/2.0"
+    baseURL: "https://neko-back.herokuapp.com/2.0",
+    withCredentials: true
 })
 
 export const passwordAPI = {
     recover(email: string) {
         return instance.post("/auth/forgot", {
             email,
-            from: "test-front-admin <ai73a@yandex.by>",
-            message: `<div style="background-color: lime; padding: 15px">
+            from: "alexbushueva27@gmail.com",
+            message: `<div style="background-color: #ffb7d5; padding: 15px border-radius: 20px">
                     password recovery link: 
                         <a href='http://localhost:3000/#/new-password/$token$'>link</a>
                     </div>
                     `
         })
     },
-    newPassword() {
+    newPassword(newPassword: string, token: string | undefined) {
+        return instance.post('/auth/set-new-password',
+            {
+                password: newPassword,
+                resetPasswordToken: token
+            })
 
     }
 }

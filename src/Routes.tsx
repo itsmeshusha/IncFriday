@@ -11,7 +11,7 @@ import {Test} from "./pages/Test/Test";
 
 export const PATH = {
     LOGIN: "/login",
-    NEW_PASSWORD: "/new-password",
+    NEW_PASSWORD: "/new-password/:token?",
     PROFILE: "/profile",
     RECOVER_PASSWORD: "/recover-password",
     REGISTRATION: "/registration",
