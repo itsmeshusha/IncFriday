@@ -1,9 +1,12 @@
 import React, {ChangeEvent, useState} from 'react'
 import SuperInputText from "../../common/SuperInputText/SuperInputText";
 import SuperButton from "../../common/SuperButton/SuperButton";
-import {useParams} from 'react-router-dom';
+import {Redirect, useParams} from 'react-router-dom';
 import {sendNewPasswordTC} from "../../redux/new-password-reducer";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import s from './NewPassword.module.css'
+import {AppStoreType} from "../../redux/store";
+import {PATH} from "../../Routes";
 
 type ParamTypes = {
     token: string
@@ -15,6 +18,7 @@ export const NewPassword = () => {
     const [confirmPassword, setConfirmPassword] = useState("")
     const {token} = useParams<ParamTypes>()
     const dispatch = useDispatch()
+    const status = useSelector<AppStoreType, string>(state => state.newPassword.status)
 
     const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)
@@ -34,15 +38,31 @@ export const NewPassword = () => {
         }
     }
 
-    return <div>
-        <h3>New Password</h3>
-        <SuperInputText type={"password"} placeholder={"password"} value={password} onChange={onChangePassword}/>
-        <div>Enter new password</div>
+    if (status === 'succeeded') {
+        return <Redirect to={PATH.LOGIN}/>
+    }
 
-        <SuperInputText type={"password"} placeholder={"password"} value={confirmPassword} onChange={onChangeConfirmPassword} />
-        <div>Confirm new password</div>
 
-        <SuperButton onClick={setNewPassword}>Set password</SuperButton>
+    return <div className={s.mainBlock}>
 
+        <div className={s.heading}>New Password</div>
+        <div className={s.form}>
+            <div className={s.item}>
+                <span>Enter new password</span>
+                <SuperInputText type={"password"} placeholder={"password"} value={password}
+                                onChange={onChangePassword}/>
+
+            </div>
+            <div className={s.item}>
+                <span>Confirm new password</span>
+                <SuperInputText type={"password"} placeholder={"password"} value={confirmPassword}
+                                onChange={onChangeConfirmPassword}/>
+
+            </div>
+            <div className={s.item}>
+                <SuperButton onClick={setNewPassword}>Set password</SuperButton>
+            </div>
+        </div>
     </div>
+
 }

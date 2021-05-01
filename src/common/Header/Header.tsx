@@ -12,17 +12,14 @@ export const Header = () => {
         <span className={s.item}>
             <NavLink activeClassName={s.selected} to={PATH.REGISTRATION}>Registration</NavLink>
         </span>
-        <span className={s.item}>
-            <NavLink activeClassName={s.selected} to={PATH.RECOVER_PASSWORD}>Recover Password</NavLink>
-        </span>
-        <span className={s.item}>
-            <NavLink activeClassName={s.selected} to={PATH.NEW_PASSWORD}>New Password</NavLink>
-        </span>
+        {/*<span className={s.item}>*/}
+        {/*    <NavLink activeClassName={s.selected} to={PATH.RECOVER_PASSWORD}>Recover Password</NavLink>*/}
+        {/*</span>*/}
+        {/*<span className={s.item}>*/}
+        {/*    <NavLink activeClassName={s.selected} to={PATH.NEW_PASSWORD}>New Password</NavLink>*/}
+        {/*</span>*/}
         <span className={s.item}>
             <NavLink activeClassName={s.selected} to={PATH.PROFILE}>Profile</NavLink>
-        </span>
-        <span className={s.item}>
-            <NavLink activeClassName={s.selected} to={PATH.TEST}>Test</NavLink>
         </span>
     </div>
 }
