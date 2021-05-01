@@ -5,7 +5,7 @@ const initState = {
     isRegistered: false
 }
 
-export const registerReducer = (state: InitStateType = initState, action: ActionType) => {
+export const registerReducer = (state: InitStateType = initState, action: ActionType): InitStateType => {
     switch(action.type) {
         case "REGISTER-REDUCER/REGISTER-NEW-USER": {
             return {...state, isRegistered: action.isRegistered}

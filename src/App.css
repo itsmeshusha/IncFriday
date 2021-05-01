@@ -3,17 +3,6 @@
 
 }
 
-.header{
 
-  display: flex;
-  justify-content: space-evenly;
-  height: 50px;
-}
 
-.item a{
-  color: black;
-  margin-top: 10px;
-  display: flex;
-  text-decoration: none;
-}
 

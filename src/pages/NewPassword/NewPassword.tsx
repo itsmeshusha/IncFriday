@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import SuperInputText from "../../common/c1-SuperInputText/SuperInputText";
-import SuperButton from "../../common/c2-SuperButton/SuperButton";
+import SuperInputText from "../../common/SuperInputText/SuperInputText";
+import SuperButton from "../../common/SuperButton/SuperButton";
 
 export const NewPassword = () => {
 
