@@ -1,0 +1,33 @@
+.mainBlock {
+    padding-top: 50px;
+}
+.heading{
+    padding-bottom: 20px;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 800;
+    font-size: 20px;
+}
+.form {
+    height: 300px;
+    font-family: 'Comfortaa', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.item {
+    max-width: 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.item a{
+    color: black;
+    margin-top: 10px;
+    display: flex;
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+}
+.item a:hover {
+    color: #ffb7d5;
+}

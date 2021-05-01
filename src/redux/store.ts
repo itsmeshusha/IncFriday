@@ -4,11 +4,15 @@ import {profileReducer} from "./profile-reducer";
 import {registerReducer} from "./register-reducer";
 import thunkMiddleware from 'redux-thunk';
 import {loginReducer} from "./login-reducer";
+import {recoverPasswordReducer} from "./recover-password-reducer";
+import {newPasswordReducer} from "./new-password-reducer";
 
 const reducers = combineReducers({
     profile: profileReducer,
     register: registerReducer,
-    login: loginReducer
+    login: loginReducer,
+    recoverPassword: recoverPasswordReducer,
+    newPassword: newPasswordReducer
 })
 //commit
 
