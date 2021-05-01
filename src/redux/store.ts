@@ -3,10 +3,12 @@ import {combineReducers} from "redux";
 import {profileReducer} from "./profile-reducer";
 import {registerReducer} from "./register-reducer";
 import thunkMiddleware from 'redux-thunk';
+import {loginReducer} from "./login-reducer";
 
 const reducers = combineReducers({
     profile: profileReducer,
-    register: registerReducer
+    register: registerReducer,
+    login: loginReducer
 })
 //commit
 
