@@ -33,7 +33,6 @@ export const NewPassword = () => {
     const setNewPassword = () => {
 
         if (password === confirmPassword) {
-            console.log(token)
             dispatch(sendNewPasswordTC(password, token))
         } else {
             alert("Passwords don't match!")
@@ -52,13 +51,11 @@ export const NewPassword = () => {
         <Bounce right>
             <div className={s.form}>
                 <div className={s.item}>
-                    <span>Enter new password</span>
                     <SuperInputText type={"password"} placeholder={"password"} value={password}
                                     onChange={onChangePassword}/>
 
                 </div>
                 <div className={s.item}>
-                    <span>Confirm new password</span>
                     <SuperInputText type={"password"} placeholder={"password"} value={confirmPassword}
                                     onChange={onChangeConfirmPassword}/>
 
