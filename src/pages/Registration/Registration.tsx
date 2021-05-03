@@ -7,6 +7,8 @@ import {registerNewUserTC} from "../../redux/register-reducer";
 import {Redirect} from 'react-router-dom';
 import {PATH} from "../../Routes";
 import s from "./Registration.module.css"
+//@ts-ignore
+import Bounce from 'react-reveal/Bounce';
 
 export const Registration = () => {
 
@@ -45,29 +47,35 @@ export const Registration = () => {
     }
 
     return <div className={s.mainBlock}>
-        <div className={s.form}>
-            <div className={s.item}>
-                <div>Enter email</div>
-                <SuperInputText type={"text"} placeholder={"email"} value={email} onChange={onChangeEmail}/>
+        <Bounce left>
+            <div className={s.heading}>Registration</div>
+        </Bounce>
+        <Bounce right>
+            <div className={s.form}>
+                <div className={s.item}>
+                    <div>Enter email</div>
+                    <SuperInputText type={"text"} placeholder={"email"} value={email} onChange={onChangeEmail}/>
 
+                </div>
+
+                <div className={s.item}>
+                    <div>Enter password</div>
+                    <SuperInputText type={"password"} placeholder={"password"} value={password}
+                                    onChange={onChangePassword}/>
+
+                </div>
+
+                <div className={s.item}>
+                    <div>Confirm password</div>
+                    <SuperInputText type={"password"} placeholder={"confirm password"} value={confirmPassword}
+                                    onChange={onChangeConfirmPassword}/>
+
+                </div>
+
+                <div className={s.item}>
+                    <SuperButton onClick={addNewUser}>Register</SuperButton>
+                </div>
             </div>
-
-            <div className={s.item}>
-                <div>Enter password</div>
-                <SuperInputText type={"password"} placeholder={"password"} value={password} onChange={onChangePassword}/>
-
-            </div>
-
-            <div className={s.item}>
-                <div>Confirm password</div>
-                <SuperInputText type={"password"} placeholder={"confirm password"} value={confirmPassword}
-                                onChange={onChangeConfirmPassword}/>
-
-            </div>
-
-            <div className={s.item}>
-                <SuperButton onClick={addNewUser}>Register</SuperButton>
-            </div>
-        </div>
+        </Bounce>
     </div>
 }

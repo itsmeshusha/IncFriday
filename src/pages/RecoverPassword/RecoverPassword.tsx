@@ -4,6 +4,8 @@ import SuperButton from "../../common/SuperButton/SuperButton";
 import {useDispatch} from "react-redux";
 import {sendEmailTC} from "../../redux/recover-password-reducer";
 import s from './RecoverPassword.module.css'
+//@ts-ignore
+import Bounce from 'react-reveal/Bounce';
 
 export const RecoverPassword = () => {
 
@@ -19,14 +21,17 @@ export const RecoverPassword = () => {
     }
 
     return <div className={s.mainBlock}>
-        <div className={s.heading}>Forgot Password?</div>
-        <div className={s.form}>
-            <div className={s.item}>
-                <SuperInputText type={"text"} placeholder={"email"} value={email} onChange={onChangeEmail}/>
-                <SuperButton onClick={sendEmail}>Send email</SuperButton>
+        <Bounce left>
+            <div className={s.heading}>Forgot Password?</div>
+        </Bounce>
+        <Bounce right>
+            <div className={s.form}>
+                <div className={s.item}>
+                    <SuperInputText type={"text"} placeholder={"email"} value={email} onChange={onChangeEmail}/>
+                    <SuperButton onClick={sendEmail}>Send email</SuperButton>
+                </div>
             </div>
-        </div>
-        <p className={s.text}>On your email we'll send a link. Please click it.</p>
-
+            <p className={s.text}>On your email we'll send a link. Please click it.</p>
+        </Bounce>
     </div>
 }

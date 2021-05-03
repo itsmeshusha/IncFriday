@@ -7,6 +7,8 @@ import {useDispatch, useSelector} from "react-redux";
 import s from './NewPassword.module.css'
 import {AppStoreType} from "../../redux/store";
 import {PATH} from "../../Routes";
+//@ts-ignore
+import Bounce from 'react-reveal/Bounce';
 
 type ParamTypes = {
     token: string
@@ -44,25 +46,28 @@ export const NewPassword = () => {
 
 
     return <div className={s.mainBlock}>
+        <Bounce left>
+            <div className={s.heading}>New Password</div>
+        </Bounce>
+        <Bounce right>
+            <div className={s.form}>
+                <div className={s.item}>
+                    <span>Enter new password</span>
+                    <SuperInputText type={"password"} placeholder={"password"} value={password}
+                                    onChange={onChangePassword}/>
 
-        <div className={s.heading}>New Password</div>
-        <div className={s.form}>
-            <div className={s.item}>
-                <span>Enter new password</span>
-                <SuperInputText type={"password"} placeholder={"password"} value={password}
-                                onChange={onChangePassword}/>
+                </div>
+                <div className={s.item}>
+                    <span>Confirm new password</span>
+                    <SuperInputText type={"password"} placeholder={"password"} value={confirmPassword}
+                                    onChange={onChangeConfirmPassword}/>
 
+                </div>
+                <div className={s.item}>
+                    <SuperButton onClick={setNewPassword}>Set password</SuperButton>
+                </div>
             </div>
-            <div className={s.item}>
-                <span>Confirm new password</span>
-                <SuperInputText type={"password"} placeholder={"password"} value={confirmPassword}
-                                onChange={onChangeConfirmPassword}/>
-
-            </div>
-            <div className={s.item}>
-                <SuperButton onClick={setNewPassword}>Set password</SuperButton>
-            </div>
-        </div>
+        </Bounce>
     </div>
 
 }

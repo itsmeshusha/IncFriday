@@ -8,6 +8,8 @@ import s from './Login.module.css'
 import {NavLink, Redirect} from "react-router-dom";
 import {PATH} from "../../Routes";
 import {loginTC} from "../../redux/login-reducer";
+//@ts-ignore
+import Bounce from 'react-reveal/Bounce';
 
 export const Login = () => {
     const [email, setEmail] = useState<string>("")
@@ -40,33 +42,37 @@ export const Login = () => {
 
     return <div className={s.mainBlock}>
         {error ? error : ""}
-        <div className={s.heading}>Log In</div>
-        <div className={s.form}>
-            <div className={s.item}>
-                <div>Enter email</div>
-                <SuperInputText type={"text"} placeholder={"email"} value={email} onChange={onChangeEmail}/>
-            </div>
-            <div className={s.item}>
-                <div>Enter password</div>
-                <SuperInputText type={"password"} placeholder={"password"} value={password}
-                                onChange={onChangePassword}/>
-            </div>
-            <div className={s.item}>
-                <span>Remember me</span>
-                <SuperCheckbox checked={rememberMe} onChange={onChangeRememberMe}/>
-            </div>
-            <div className={s.item}>
-                <SuperButton onClick={loginClickHandler}>Log In</SuperButton>
-            </div>
+        <Bounce left>
+            <div className={s.heading}>Log In</div>
+        </Bounce>
+        <Bounce right>
+            <div className={s.form}>
+                <div className={s.item}>
+                    <div>Enter email</div>
+                    <SuperInputText type={"text"} placeholder={"email"} value={email} onChange={onChangeEmail}/>
+                </div>
+                <div className={s.item}>
+                    <div>Enter password</div>
+                    <SuperInputText type={"password"} placeholder={"password"} value={password}
+                                    onChange={onChangePassword}/>
+                </div>
+                <div className={s.item}>
+                    <span>Remember me</span>
+                    <SuperCheckbox checked={rememberMe} onChange={onChangeRememberMe}/>
+                </div>
+                <div className={s.item}>
+                    <SuperButton onClick={loginClickHandler}>Log In</SuperButton>
+                </div>
 
-            <div className={s.item}>
-                <NavLink activeClassName={s.selected} to={PATH.RECOVER_PASSWORD}>Forgot password?</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink activeClassName={s.selected} to={PATH.REGISTRATION}>Don't have profile? Sign up.</NavLink>
-            </div>
+                <div className={s.item}>
+                    <NavLink activeClassName={s.selected} to={PATH.RECOVER_PASSWORD}>Forgot password?</NavLink>
+                </div>
+                <div className={s.item}>
+                    <NavLink activeClassName={s.selected} to={PATH.REGISTRATION}>Don't have profile? Sign up.</NavLink>
+                </div>
 
 
-        </div>
+            </div>
+        </Bounce>
     </div>
 }

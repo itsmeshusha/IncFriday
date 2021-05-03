@@ -1,6 +1,12 @@
 .mainBlock {
     padding-top: 50px;
 }
+.heading{
+    padding-bottom: 20px;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 800;
+    font-size: 20px;
+}
 .form {
     height: 250px;
     font-family: 'Comfortaa', cursive;
