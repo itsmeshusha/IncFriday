@@ -2,7 +2,6 @@ import {Dispatch} from "redux";
 import {authAPI} from "../api/api-auth";
 import {loginAC} from "./login-reducer";
 
-
 const initialState: ProfileInitialStateType = {
     profile: {
         _id: null,
@@ -34,22 +33,25 @@ export const profileReducer = (state: ProfileInitialStateType = initialState, ac
 //AC
 export const setProfileAC = (profile: ProfileType) => ({type: "PROFILE-REDUCER/SET_PROFILE", profile} as const)
 
+
 //thunks
 export const authMeTC = () => (dispatch: Dispatch) => {
     return authAPI.me()
         .then(res => {
-            if(res.status === 200) {
-                dispatch(loginAC(true))
                 dispatch(setProfileAC(res.data))
-            }
+
         })
         .catch(err => {
-            console.log(err)
+            const error = err.response
+                ? err.response.data.error
+                : (err.message + ', more details in the console');
+            console.log(error)
         })
 }
 
+
 //types
-type ActionType = ReturnType<typeof setProfileAC>
+type ActionType = ReturnType<typeof setProfileAC >
 export type ProfileInitialStateType = {
     profile: ProfileType
 }

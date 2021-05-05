@@ -9,5 +9,11 @@ const instance = axios.create({
 export const authAPI = {
     me () {
         return instance.post('auth/me')
+    },
+    updateMe (name: string | null, avatar: string | null) {
+        return instance.put('auth/me', {
+            name,
+            avatar
+        })
     }
 }

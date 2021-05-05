@@ -1,12 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import SuperCheckbox from "./common/SuperCheckbox/SuperCheckbox";
-import SuperInputText from "./common/SuperInputText/SuperInputText";
-import SuperButton from "./common/SuperButton/SuperButton";
 import {HashRouter} from "react-router-dom";
 import {Header} from "./common/Header/Header";
 import {Routes} from "./Routes";
+import {Initialize} from "./common/Initialize/Initialize";
+import {Loader} from "./common/Loader/Loader";
 
 function App() {
   return (
@@ -14,7 +12,8 @@ function App() {
         <HashRouter>
         <Header />
         <Routes />
-
+            {/*<Initialize />*/}
+            {/*<Loader />*/}
         </HashRouter>
     </div>
   );
