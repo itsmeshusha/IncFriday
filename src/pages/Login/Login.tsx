@@ -48,11 +48,9 @@ export const Login = () => {
         <Bounce right>
             <div className={s.form}>
                 <div className={s.item}>
-                    <div>Enter email</div>
                     <SuperInputText type={"text"} placeholder={"email"} value={email} onChange={onChangeEmail}/>
                 </div>
                 <div className={s.item}>
-                    <div>Enter password</div>
                     <SuperInputText type={"password"} placeholder={"password"} value={password}
                                     onChange={onChangePassword}/>
                 </div>
