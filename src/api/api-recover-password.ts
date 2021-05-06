@@ -13,7 +13,7 @@ export const passwordAPI = {
             from: "alexbushueva27@gmail.com",
             message: `<div style="background-color: #ffb7d5; padding: 15px border-radius: 20px">
                     password recovery link: 
-                        <a href='http://localhost:3000/#/new-password/$token$'>link</a>
+                        <a href='https://itsmeshusha.github.io/IncFriday/#/new-password/$token$'>link</a>
                     </div>
                     `
         })
