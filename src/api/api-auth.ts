@@ -2,7 +2,8 @@ import axios from 'axios';
 
 
 const instance = axios.create({
-    baseURL: "https://neko-back.herokuapp.com/2.0/", //сам сервер
+    //baseURL: "https://neko-back.herokuapp.com/2.0/", //сам сервер
+    baseURL: "http://localhost:7542/2.0/", //сам сервер
     withCredentials: true
 })
 
