@@ -1,6 +1,7 @@
 .mainBlock {
+    padding-right: 30px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 .profileImage img{
     padding: 20px;
