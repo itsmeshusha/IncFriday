@@ -1,5 +1,6 @@
 import {Dispatch} from "redux";
 import {passwordAPI} from "../api/api-recover-password";
+import {setStatusAC} from "./app-reducer";
 
 const initState = {
     status: 'idle',
@@ -14,11 +15,6 @@ export const newPasswordReducer = (state: InitStateType = initState, action: Act
                 ...state,
                 error: action.error
             }
-        case 'NEW-PASSWORD-REDUCER/SET_STATUS':
-            return {
-                ...state,
-                status: action.status
-            }
         case 'NEW-PASSWORD-REDUCER/SET_SUCCESS':
             return {
                 ...state,
@@ -32,14 +28,14 @@ export const newPasswordReducer = (state: InitStateType = initState, action: Act
 // actions
 export const setErrorAC = (error: string) => ({type: 'NEW-PASSWORD-REDUCER/SET_ERROR', error} as const)
 export const setSuccessAC = (success: string) => ({type: 'NEW-PASSWORD-REDUCER/SET_SUCCESS', success} as const)
-export const setAppStatusAC = (status: RequestStatusType) => ({type: 'NEW-PASSWORD-REDUCER/SET_STATUS',status} as const)
 
 //thunks
 export const sendNewPasswordTC = (newPassword: string, token: string) => (dispatch: Dispatch) => {
-    dispatch(setAppStatusAC('loading'))
+    dispatch(setStatusAC('loading'))
     passwordAPI.newPassword(newPassword, token)
         .then(res => {
             dispatch(setSuccessAC(res.data.message))
+            dispatch(setStatusAC('succeeded'))
         })
         .catch(err => {
             const error = err.response
@@ -48,11 +44,10 @@ export const sendNewPasswordTC = (newPassword: string, token: string) => (dispat
             dispatch(setErrorAC(error))
         })
         .finally(() => {
-            dispatch(setAppStatusAC('succeeded'))
+            dispatch(setStatusAC('succeeded'))
         })
 }
 
 //types
-export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
 type InitStateType = typeof initState
-type ActionType = ReturnType<typeof setErrorAC | typeof setSuccessAC | typeof setAppStatusAC>
+type ActionType = ReturnType<typeof setErrorAC | typeof setSuccessAC>

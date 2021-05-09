@@ -1,0 +1,9 @@
+.btn {
+    font-family: 'Comfortaa', cursive;
+    border-radius: 30px;
+    background-color: #ffb7d5;
+    padding: 10px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 18px;
+}

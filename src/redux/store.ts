@@ -6,8 +6,10 @@ import thunkMiddleware from 'redux-thunk';
 import {loginReducer} from "./login-reducer";
 import {recoverPasswordReducer} from "./recover-password-reducer";
 import {newPasswordReducer} from "./new-password-reducer";
+import {appReducer} from "./app-reducer";
 
 const reducers = combineReducers({
+    app: appReducer,
     profile: profileReducer,
     register: registerReducer,
     login: loginReducer,

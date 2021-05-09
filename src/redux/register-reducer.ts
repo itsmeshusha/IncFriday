@@ -1,5 +1,6 @@
 import {Dispatch} from "redux";
 import {registerAPI, RegisterNewUserDataType} from "../api/api-register";
+import {setStatusAC} from "./app-reducer";
 
 const initState = {
     isRegistered: false
@@ -20,13 +21,16 @@ export const registerNewUserAC = (isRegistered: boolean) => ({type: "REGISTER-RE
 
 //thunks
 export const registerNewUserTC = (newUserData: RegisterNewUserDataType) => (dispatch: Dispatch) => {
+    dispatch(setStatusAC('loading'))
     registerAPI.registerNewUser(newUserData)
         .then(res => {
             if(res.status === 201){
                 dispatch(registerNewUserAC(true))
+                dispatch(setStatusAC('succeeded'))
             } else {
                 dispatch(registerNewUserAC(false))
                 alert(res.status)
+                dispatch(setStatusAC('failed'))
             }
         })
         .catch(err => console.log(err))
