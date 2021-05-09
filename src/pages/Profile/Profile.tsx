@@ -20,11 +20,9 @@ export const Profile = () => {
         }
     }, [isLoggedIn, dispatch])
 
-    // if(!isLoggedIn) {
-    //     return <Redirect to={PATH.LOGIN} />
-    // }
-
-
+    if(!isLoggedIn) {
+        return <Redirect to={PATH.LOGIN} />
+    }
 
     return <div className={s.mainBlock}>
         <div className={s.profile}>

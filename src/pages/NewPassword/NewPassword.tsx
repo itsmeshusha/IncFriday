@@ -9,6 +9,8 @@ import {AppStoreType} from "../../redux/store";
 import {PATH} from "../../Routes";
 //@ts-ignore
 import Bounce from 'react-reveal/Bounce';
+import {Loader} from "../../common/Loader/Loader";
+import {RequestStatusType} from "../../redux/app-reducer";
 
 type ParamTypes = {
     token: string
@@ -20,7 +22,7 @@ export const NewPassword = () => {
     const [confirmPassword, setConfirmPassword] = useState("")
     const {token} = useParams<ParamTypes>()
     const dispatch = useDispatch()
-    const status = useSelector<AppStoreType, string>(state => state.newPassword.status)
+    const status = useSelector<AppStoreType, RequestStatusType>(state => state.app.status)
 
     const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)
@@ -45,6 +47,7 @@ export const NewPassword = () => {
 
 
     return <div className={s.mainBlock}>
+        {status === 'loading' && <Loader />}
         <Bounce left>
             <div className={s.heading}>New Password</div>
         </Bounce>

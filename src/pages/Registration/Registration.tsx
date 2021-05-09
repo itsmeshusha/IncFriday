@@ -9,6 +9,8 @@ import {PATH} from "../../Routes";
 import s from "./Registration.module.css"
 //@ts-ignore
 import Bounce from 'react-reveal/Bounce';
+import {RequestStatusType} from "../../redux/app-reducer";
+import {Loader} from "../../common/Loader/Loader";
 
 export const Registration = () => {
 
@@ -18,6 +20,7 @@ export const Registration = () => {
 
     const dispatch = useDispatch()
     const isRegistered = useSelector<AppStoreType, boolean>(state => state.register.isRegistered)
+    const status = useSelector<AppStoreType, RequestStatusType>(state => state.app.status)
 
     const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
@@ -47,6 +50,7 @@ export const Registration = () => {
     }
 
     return <div className={s.mainBlock}>
+        {status === 'loading' && <Loader />}
         <Bounce left>
             <div className={s.heading}>Registration</div>
         </Bounce>

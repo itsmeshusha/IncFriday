@@ -10,6 +10,8 @@ import {PATH} from "../../Routes";
 import {loginTC} from "../../redux/login-reducer";
 //@ts-ignore
 import Bounce from 'react-reveal/Bounce';
+import {RequestStatusType} from "../../redux/app-reducer";
+import {Loader} from "../../common/Loader/Loader";
 
 export const Login = () => {
     const [email, setEmail] = useState<string>("")
@@ -19,6 +21,7 @@ export const Login = () => {
     const dispatch = useDispatch()
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
     const error = useSelector<AppStoreType, string>(state => state.login.error)
+    const status = useSelector<AppStoreType, RequestStatusType>(state => state.app.status)
 
     const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
@@ -41,6 +44,7 @@ export const Login = () => {
     }
 
     return <div className={s.mainBlock}>
+        {status === 'loading' && <Loader />}
         {error ? error : ""}
         <Bounce left>
             <div className={s.heading}>Log In</div>

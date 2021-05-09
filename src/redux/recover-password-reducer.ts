@@ -1,5 +1,6 @@
 import {Dispatch} from "redux"
 import {passwordAPI} from "../api/api-recover-password";
+import {setStatusAC} from "./app-reducer";
 
 const initState = {
     status: 'idle',
@@ -21,12 +22,6 @@ export const recoverPasswordReducer = (state: InitStateType = initState, action:
                 status: action.recoverySuccess
             }
         }
-        case "RECOVER-PASSWORD-REDUCER/SET_RECOVERY_STATUS": {
-            return {
-                ...state,
-                status: action.status
-            }
-        }
         default:
             return state
     }
@@ -38,18 +33,16 @@ export const setSuccessAC = (recoverySuccess: string) => ({
     type: 'RECOVER-PASSWORD-REDUCER/SET_SUCCESS',
     recoverySuccess
 } as const)
-export const setRecoveryStatusAC = (status: RequestStatusType) => ({
-    type: 'RECOVER-PASSWORD-REDUCER/SET_RECOVERY_STATUS',
-    status
-} as const)
+
 
 //thunks
 export const sendEmailTC = (email: string) => (dispatch: Dispatch) => {
-    dispatch(setRecoveryStatusAC('loading'))
+    dispatch(setStatusAC('loading'))
     return passwordAPI.recover(email)
         .then(res => {
             if (res.status === 200) {
                 dispatch(setSuccessAC(res.data.info))
+                dispatch(setStatusAC('succeeded'))
             }
         })
         .catch(err => {
@@ -59,12 +52,11 @@ export const sendEmailTC = (email: string) => (dispatch: Dispatch) => {
             dispatch(setErrorAC(error))
         })
         .finally(() => {
-            dispatch(setRecoveryStatusAC('succeeded'))
+            dispatch(setStatusAC('succeeded'))
         })
 
 }
 
 //types
-export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
 type InitStateType = typeof initState
-type ActionType = ReturnType<typeof setErrorAC | typeof setSuccessAC | typeof setRecoveryStatusAC>
+type ActionType = ReturnType<typeof setErrorAC | typeof setSuccessAC >
