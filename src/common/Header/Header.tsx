@@ -21,6 +21,9 @@ export const Header = () => {
         <span className={s.item}>
             <NavLink activeClassName={s.selected} to={PATH.PROFILE}>Profile</NavLink>
         </span>
+        <span className={s.item}>
+            <NavLink activeClassName={s.selected} to={PATH.PACKS}>Packs</NavLink>
+        </span>
         <span>
             <Logout/>
         </span>

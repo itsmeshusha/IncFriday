@@ -7,7 +7,7 @@ import {Profile} from "./pages/Profile/Profile";
 import {RecoverPassword} from "./pages/RecoverPassword/RecoverPassword";
 import {Registration} from "./pages/Registration/Registration";
 import {Test} from "./pages/Test/Test";
-import {Logout} from "./pages/Logout/Logout";
+import {Packs} from "./pages/Packs/Packs";
 
 
 export const PATH = {
@@ -17,7 +17,7 @@ export const PATH = {
     RECOVER_PASSWORD: "/recover-password",
     REGISTRATION: "/registration",
     TEST: "/test",
-    LOGOUT: "/logout"
+    PACKS: "/packs",
 }
 
 //Routes
@@ -32,7 +32,7 @@ export const Routes = () => {
             <Route path={PATH.RECOVER_PASSWORD} render={() => <RecoverPassword />} />
             <Route path={PATH.REGISTRATION} render={() => <Registration />} />
             <Route path={PATH.TEST} render={() => <Test />} />
-            <Route path={PATH.LOGOUT} render={() => <Logout /> } />
+            <Route path={PATH.PACKS} render={() => <Packs />} />
 
             <Route render={() => <Error />} />
         </Switch>

@@ -1,0 +1,8 @@
+.mainBlock {
+    display: flex;
+    flex-direction: column;
+}
+.table {
+    display: flex;
+    justify-content: space-around;
+}
