@@ -7,6 +7,7 @@ import {loginReducer} from "./login-reducer";
 import {recoverPasswordReducer} from "./recover-password-reducer";
 import {newPasswordReducer} from "./new-password-reducer";
 import {appReducer} from "./app-reducer";
+import {packsReducer} from "./packs-reducer";
 
 const reducers = combineReducers({
     app: appReducer,
@@ -14,7 +15,8 @@ const reducers = combineReducers({
     register: registerReducer,
     login: loginReducer,
     recoverPassword: recoverPasswordReducer,
-    newPassword: newPasswordReducer
+    newPassword: newPasswordReducer,
+    packs: packsReducer
 })
 //commit
 
